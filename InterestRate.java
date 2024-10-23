@@ -23,6 +23,8 @@ public class InterestRate {
         calc.setInterestRate(scan.nextDouble());
         System.out.println("Please enter time period (in months):");
         calc.setMonths(scan.nextInt());
+        System.out.println("Please enter monthly payment wanted");
+        calc.setMonthWanted(scan.nextInt());
         System.out.println(calc);
     }
     
@@ -36,6 +38,7 @@ class IRCalc {
     private double initialAmount;
     private double interestRate;
     private int months;
+    private int monthWanted;
 
     public void setInitialAmount(double inInitialAmount) {
        initialAmount = inInitialAmount; 
@@ -49,12 +52,14 @@ class IRCalc {
        months = inMonths; 
     }
     
+    public void setMonthWanted(int inMonthWanted) {
+        monthWanted = inMonthWanted;
+    }
+    
     @Override
     public String toString(){
-        double result = initialAmount * Math.pow((1 + interestRate), months);
-        double result2 = result/months;
-        String realResult = "\n\nYour total due is $" + currency.format(result) + " over " + months + " months.\nThis comes out to $" + result2 + " per month.";
+        double result = ((initialAmount/months)*Math.pow((1+interestRate),monthWanted));
+        String realResult = "Your monthly payment for month " + monthWanted + " is " + result;
         return realResult;
-    } 
-    
+    }
 }
