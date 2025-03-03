@@ -248,6 +248,10 @@ class Game {
           if (answer.equalsIgnoreCase(country.getName())){
              System.out.println("\nYOU WIN");
              System.exit(0);
+             
+          } else if ((answer.equalsIgnoreCase("i dont know")) || (answer.equalsIgnoreCase("i don't know")) || (answer.equalsIgnoreCase("idk")) || (answer.equalsIgnoreCase("no clue")) || (answer.equalsIgnoreCase("no idea"))) {
+              System.out.println("\nYOU ADMITTED DEFEAT\nThe correct answer is: " + country.getName());
+              System.exit(0);
                        
           } else {
               System.out.println("\nWrong answer");
